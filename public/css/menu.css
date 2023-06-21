@@ -8,8 +8,7 @@
   .container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
-    transition: height 0.3s ease; /* Agregamos una transición para suavizar el cambio de altura */
+    height: 95vh;
   }
   
   .container.expanded {
@@ -18,17 +17,11 @@
   
   /* Estilos para el menú */
   .menu {
-    flex: 0 0 15rem;
+    flex: 0 0 16rem;
     height: 95vh;
     margin: .5rem;
     background-color: #69ffa3;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    opacity: 0; /* Inicialmente oculto */
-    transition: opacity 0.3s ease;
-  }
-  
-  .menu:hover {
-    opacity: 1; /* Al acercar el cursor, se muestra */
   }
   
   .menu.hidden {
@@ -43,7 +36,7 @@
     background-color: #69ffa3;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 600;
+    font-weight: 800;
   }
   
   /* Estilos para los elementos del menú */
@@ -58,7 +51,7 @@
   .menu li {
     margin: 0;
     padding: 10px;
-    border-bottom: 1px solid #f0de77;
+    border-bottom: 1px solid #ffef93;
     cursor: pointer;
   }
   
@@ -76,9 +69,8 @@
   /* Estilos para la sección de contenido */
   .content {
     flex: 1;
-    padding: 20px;
-    transition: padding 0.3s ease;
-    flex-grow: 1; /* El contenido ocupa el espacio restante */
+    padding: 5px;
+    flex-grow: 5; /* El contenido ocupa el espacio restante */
   }
   
   .content.menu-hidden {

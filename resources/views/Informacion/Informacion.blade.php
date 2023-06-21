@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tabla Estructura Campaña</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-    <style>
-        /* Estilos personalizados */
-        #dataTable_wrapper {
-            margin-top: 20px;
-        }
-    </style>
+    <title>Información</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/informacion.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 </head>
 <body>
-    <h1>Tabla Estructura Campaña</h1>
+    <h1>Información</h1>
     <table id="dataTable">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Dato</th>
-                <th>Cédula Deudor</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
                 <th>Campaña</th>
-                <th>Fecha Campaña</th>
                 <th>Nombre Referencia</th>
                 <th>Parentesco</th>
-                <th>Campaña Cod</th>
-                <th>Acciones</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +31,7 @@
                     <td>{{ $registro->parentesco }}</td>
                     <td>{{ $registro->campaña_Cod_Campaña_SARC }}</td>
                     <td>
-                    <button onclick="editarRegistro('{{ $registro->id }}')">Editar</button>
-
+                        <button onclick="editarRegistro('{{ $registro->id }}')">Editar</button>
                     </td>
                 </tr>
             @endforeach
@@ -52,10 +43,15 @@
         <!-- Aquí puedes agregar los campos y los botones para editar el registro -->
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script>
-        // Inicializar la tabla DataTables
         $(document).ready(function() {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                paging: true, // Habilitar paginación
+                searching: true, // Habilitar búsqueda en tiempo real
+                ordering: true // Habilitar ordenamiento
+            });
         });
 
         // Función para mostrar la pantalla emergente de edición del registro
