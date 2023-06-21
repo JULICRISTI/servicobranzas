@@ -25,6 +25,7 @@
                     <td>{{ $registro->id }}</td>
                     <td>{{ $registro->dato }}</td>
                     <td>{{ $registro->cedula_deudor }}</td>
+                    <td>{{ $registro->nombre}}</td>
                     <td>{{ $registro->campaña }}</td>
                     <td>{{ $registro->fecha_campaña }}</td>
                     <td>{{ $registro->nombre_referencia }}</td>
