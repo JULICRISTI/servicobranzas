@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
-use App\Http\Controllers\ImportExportController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\InformacionController;
-use App\Http\Controllers\CargarDatosController;
-use App\Http\Controllers\DescargarController;
-use App\Http\Controllers\SubirArchivoController;
-use App\Http\Controllers\EditarRegistroController;
+use App\Http\Controllers;
+use App\Http\Controllers\Controller;
+
+// use App\Http\Controllers\MenuController;
+// use App\Http\Controllers\InformacionController;
+// use App\Http\Controllers\CargarDatosController;
+// use App\Http\Controllers\DescargarController;
+// use App\Http\Controllers\SubirArchivoController;
+// use App\Http\Controllers\EditarRegistroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,26 +27,35 @@ Route::get('/', [Auth::class, 'login'])->name('login');
 Route::post('/', [Auth::class, 'loginPost'])->name('login-post');
 
 
+// Estructura para llamar a los controladores:
+// | 1 -> Importar la carpeta de los controladores: 
+// |    use App\Http\Controllers\NombreDeLaCarpeta;
+// |
+// | 2 -> Crear la ruta:
+// |    Route::get('/nombre-de-la-ruta', [NombreDeLaCarpeta\NombreDelControlador::class, 'nombreDeLaFuncion'])->name('nombre-de-la-ruta');
+// |   Ejemplo de llamado del controlador:
+// |    -> [Controllers\NombreDelControlador::class, 'nombreDeLaFuncion']
+// |
+// Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Protege la ruta /home
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [Auth::class, 'home'])->name('home');
-    Route::get('/menu', [MenuController::class, 'showmenu'])->name('menu');
+    Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/menu', [Controllers\MenuController::class, 'showmenu'])->name('menu');
 });
-Route::get('/Informacion', [InformacionController::class, 'showInformacion'])->name('Informacion');
-Route::get('/cargar-datos', [CargarDatosController::class, 'showCargarDatos'])->name('cargar-datos');
+Route::get('/Informacion', [Controllers\InformacionController::class, 'showInformacion'])->name('Informacion');
+Route::get('/cargar-datos', [Controllers\CargarDatosController::class, 'showCargarDatos'])->name('cargar-datos');
 
 // Ruta para descargar el archivo
-Route::post('Descargar', 'ControladorDescargar@accionDescargar')->name('Descargar');
+Route::post('Descargar', [Controllers\DescargarController::class, 'Descargar'])->name('Descargar');
 
 // Ruta para subir el archivo
-Route::post('SubirArchivo', 'ControladorSubirArchivo@accionSubir')->name('Subir');
+Route::post('SubirArchivo', [Controllers\SubirArchivoController::class, 'SubirArchivo'])->name('Subir');
 
 //Ruta editar registros
-Route::get('/editar-registro/{id}', 'EditarRegistroController@editarRegistro')->name('editarregistro');
-Route::post('/editarregistro', 'EditarRegistroController@guardarRegistro')->name('editarregistro');
-
+Route::get('/editar-registro/{id}', [Controller\EditarRegistroController::class, 'editarRegistro'])->name('editarregistro');
+Route::post('/editarregistro', [Controller\EditarRegistroController::class, 'guardarRegistro'])->name('editarregistro');
 
 
 
