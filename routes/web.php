@@ -8,6 +8,7 @@ use App\Http\Controllers\InformacionController;
 use App\Http\Controllers\CargarDatosController;
 use App\Http\Controllers\DescargarController;
 use App\Http\Controllers\SubirArchivoController;
+use App\Http\Controllers\EditarRegistroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,13 @@ Route::post('Descargar', 'ControladorDescargar@accionDescargar')->name('Descarga
 
 // Ruta para subir el archivo
 Route::post('SubirArchivo', 'ControladorSubirArchivo@accionSubir')->name('Subir');
+
+//Ruta editar registros
+Route::get('/editar-registro/{id}', 'EditarRegistroController@editarRegistro')->name('editarregistro');
+Route::post('/editarregistro', 'EditarRegistroController@guardarRegistro')->name('editarregistro');
+
+
+
 
 
 Route::get('/logout', [Auth::class, 'logout'])->name('logout');
