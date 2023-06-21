@@ -22,15 +22,12 @@
         <tbody>
             @foreach($registros as $registro)
                 <tr>
-                    <td>{{ $registro->id }}</td>
                     <td>{{ $registro->dato }}</td>
                     <td>{{ $registro->cedula_deudor }}</td>
                     <td>{{ $registro->nombre}}</td>
                     <td>{{ $registro->campaña }}</td>
-                    <td>{{ $registro->fecha_campaña }}</td>
                     <td>{{ $registro->nombre_referencia }}</td>
                     <td>{{ $registro->parentesco }}</td>
-                    <td>{{ $registro->campaña_Cod_Campaña_SARC }}</td>
                     <td>
                         <button onclick="editarRegistro('{{ $registro->id }}')">Editar</button>
                     </td>

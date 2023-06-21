@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [Auth::class, 'home'])->name('home');
     Route::get('/menu', [MenuController::class, 'showmenu'])->name('menu');
 });
-Route::match(['get', 'post'], '/Informacion/{id?}', [InformacionController::class, 'showInformacion'])->name('Informacion');
+Route::get('/Informacion', [InformacionController::class, 'showInformacion'])->name('Informacion');
 Route::get('/cargar-datos', [CargarDatosController::class, 'showCargarDatos'])->name('cargar-datos');
 
 // Ruta para descargar el archivo

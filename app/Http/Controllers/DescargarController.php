@@ -14,7 +14,23 @@ class DescargarController extends Controller
         if ($formato === 'txt') {
             $fileName = 'data.txt';
 
-            $data = estructuracampana::select('dato', 'cedula_deudor', 'nombre', 'campaña', 'fecha_campaña', 'nombre_referencia', 'parentesco', 'campaña_Cod_Campaña_SARC', 'datos_Id', 'observaciones_Id')->get();
+            $data = estructuracampana::select('dato', 'cedula_deudor', 'nombre', 'estructuracampana.campaña', 'fecha_campaña', 'nombre_referencia', 'parentesco', 'campaña.Campaña', 'datos.Tipo_dato as datos_Id', 'observaciones.Tipo_observacion as observaciones_Id')
+            -> join("datos", "estructuracampana.datos_Id", "=", "datos.Id")
+            -> join("observaciones", "estructuracampana.observaciones_Id", "=", "observaciones.Id")
+            -> join("campaña", "estructuracampana.campaña_Cod_Campaña_SARC", "=", "campaña.Cod_Campaña_SARC")
+            -> groupBy(
+                "estructuracampana.dato",
+                "estructuracampana.cedula_deudor",
+                "estructuracampana.nombre",
+                "estructuracampana.campaña",
+                "estructuracampana.fecha_campaña",
+                "estructuracampana.nombre_referencia",
+                "estructuracampana.parentesco",
+                "campaña.Campaña",
+                "datos.Tipo_dato",
+                "observaciones.Tipo_observacion"
+                )
+            -> get();
 
             $fileContents = '';
             foreach ($data as $item) {

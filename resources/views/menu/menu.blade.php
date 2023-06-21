@@ -14,8 +14,9 @@
         <h1></h1>
         <div class="items">
             <ul>
-            <li><a href="{{ isset($id) && is_object($id) ? route('informacion', ['id' => $id->id]) : '#' }}" target="content">Informacion</a></li>
-                <li><a href="{{ route('cargar-datos') }}" target="content">Carga de datos</a></li>
+
+            <li><a href="{{ route('Informacion') }}" target="content">Informacion</a></li>
+            <li><a href="{{ route('cargar-datos') }}" target="content">Carga de datos</a></li>
 
             </ul>
         </div>
