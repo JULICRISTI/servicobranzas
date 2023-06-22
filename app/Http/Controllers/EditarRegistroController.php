@@ -26,30 +26,24 @@ class EditarRegistroController extends Controller
     public function guardarRegistro(Request $request)
     {
         // Validar los datos recibidos del formulario
-        $request->validate([
-            'id' => 'required|exists:nuevosregistros,id',
-            'dato' => 'required',
-            'nombre_referencia' => 'required',
-            'parentesco' => 'required',
-            'cedula' => 'required',
+        // $request->validate([
+        //     'id' => 'required|exists:nuevosregistros,id',
+        //     'dato' => 'required',
+        //     'nombre_referencia' => 'required',
+        //     'parentesco' => 'required',
+        //     'cedula' => 'required',
+        // ]);
+        
+        // Inserta los datos en la tabla de registros
+        nuevosregistros::create([
+            // 'id' => $request->id,
+            'dato' => $request->dato,
+            'nombre' => $request->nombre,
+            // 'parentesco' => $request->parentesco,
+            'cedula' => $request->cedula,
         ]);
 
-        // Obtener el registro a editar
-        $registro = nuevosregistros::find($request->id);
-
-        // Verificar si se encontró el registro
-        if (!$registro) {
-            return response()->json(['error' => 'Registro no encontrado'], 404);
-        }
-
-        // Actualizar los campos del registro con los nuevos valores
-        $registro->dato = $request->dato;
-        $registro->nombre_referencia = $request->nombre_referencia;
-        $registro->parentesco = $request->parentesco;
-        $registro->cedula = $request->cedula;
-        $registro->save();
-
         // Redireccionar o retornar una respuesta adecuada según tus necesidades
-        return redirect()->route('informacion')->with('success', 'Registro actualizado correctamente');
+        return redirect()->route('Informacion')->with('success', 'Registro actualizado correctamente');
     }
 }
