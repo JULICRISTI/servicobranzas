@@ -9,6 +9,10 @@
         .dataTables_wrapper, .dataTables_length, .dataTables_filter, .dataTables_paginate {
             padding: 1rem;
         }
+
+        td {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
