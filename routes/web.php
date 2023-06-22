@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers;
-use App\Http\Controllers\Controller;
 
 // use App\Http\Controllers\MenuController;
 // use App\Http\Controllers\InformacionController;
@@ -54,8 +53,8 @@ Route::post('Descargar', [Controllers\DescargarController::class, 'Descargar'])-
 Route::post('SubirArchivo', [Controllers\SubirArchivoController::class, 'SubirArchivo'])->name('Subir');
 
 //Ruta editar registros
-Route::get('/editar-registro/{id}', [Controller\EditarRegistroController::class, 'editarRegistro'])->name('editarregistro');
-Route::post('/editarregistro', [Controller\EditarRegistroController::class, 'guardarRegistro'])->name('editarregistro');
+Route::get('/editar-registro/{id}', [Controllers\EditarRegistroController::class, 'editarRegistro'])->name('editarregistro');
+Route::post('/editarregistro', [Controllers\EditarRegistroController::class, 'guardarRegistro'])->name('editarregistro_post');
 
 
 

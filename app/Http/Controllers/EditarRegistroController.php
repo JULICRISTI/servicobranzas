@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\estructuracampana;
 use Illuminate\Http\Request;
 use App\Models\nuevosregistros;
+use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransportFactory;
 
 class EditarRegistroController extends Controller
 {
     public function editarRegistro($id)
     {
         // Obtener el registro específico a editar
-        $registro = nuevosregistros::find($id);
+        $registro = estructuracampana::find($id);
 
         // Verificar si se encontró el registro
         if (!$registro) {
@@ -18,8 +20,7 @@ class EditarRegistroController extends Controller
         }
 
         // Retornar la vista de edición con los datos del registro
-        return view('editar
-        registro', ['registro' => $registro]);
+        return view('editarregistro.editarregistro', compact('registro'));
     }
 
     public function guardarRegistro(Request $request)

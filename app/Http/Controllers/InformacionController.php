@@ -7,10 +7,10 @@ use App\Models\estructuracampana;
 
 class InformacionController extends Controller
 {
-    public function showInformacion($id = null)
+    public function showInformacion()
     {
-        $registros = estructuracampana::all();  
-          
+        $registros = estructuracampana::all(); 
+                  
         return view('Informacion.Informacion', compact('registros'));
     }
 }
