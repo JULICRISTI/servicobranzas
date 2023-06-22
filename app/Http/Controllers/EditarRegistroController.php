@@ -50,6 +50,6 @@ class EditarRegistroController extends Controller
         $registro->save();
 
         // Redireccionar o retornar una respuesta adecuada según tus necesidades
-        return redirect()->route('informacion')->with('success', 'Registro actualizado correctamente');
+        return redirect()->route('informacion.informacion')->with('success', 'Registro actualizado correctamente');
     }
 }

@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Editar Registro</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/editarregistro.css') }}">
 </head>
 <body>
     <h1>Editar Registro</h1>
@@ -34,6 +35,7 @@
             <label for="parentesco">Parentesco:</label>
             <input type="text" name="parentesco" value="{{ $registro->parentesco }}">
         </div>
+
         
         <button type="submit">Guardar</button>
     </form>
