@@ -42,6 +42,7 @@ Route::post('/', [Auth::class, 'loginPost'])->name('login-post');
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/menu', [Controllers\MenuController::class, 'showmenu'])->name('menu');
+    Route::get('/cerrarsesion', [Controllers\Auth::class, 'cerrarSesion'])->name('cerrarSesion');
 });
 Route::get('/Informacion', [Controllers\InformacionController::class, 'showInformacion'])->name('Informacion');
 Route::get('/cargar-datos', [Controllers\CargarDatosController::class, 'showCargarDatos'])->name('cargar-datos');
