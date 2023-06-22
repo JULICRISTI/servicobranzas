@@ -22,7 +22,7 @@
         </div>
         <div class="form-container">
             <!-- Botón de cerrar sesión -->
-            <form method="post" action="{{ url('cerrarSesion') }}">
+            <form method="post" action="{{ url('cerrar_sesion') }}">
                 @csrf
                 <button type="submit">Cerrar sesión</button>
             </form>

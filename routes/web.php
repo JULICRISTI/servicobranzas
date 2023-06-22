@@ -42,7 +42,6 @@ Route::post('/', [Auth::class, 'loginPost'])->name('login-post');
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/menu', [Controllers\MenuController::class, 'showmenu'])->name('menu');
-    Route::get('/cerrarsesion', [Controllers\Auth::class, 'cerrarSesion'])->name('cerrarSesion');
 });
 Route::get('/Informacion', [Controllers\InformacionController::class, 'showInformacion'])->name('Informacion');
 Route::get('/cargar-datos', [Controllers\CargarDatosController::class, 'showCargarDatos'])->name('cargar-datos');
@@ -57,7 +56,7 @@ Route::post('SubirArchivo', [Controllers\SubirArchivoController::class, 'SubirAr
 Route::get('/editar-registro/{id}', [Controllers\EditarRegistroController::class, 'editarRegistro'])->name('editarregistro');
 Route::post('/editarregistro', [Controllers\EditarRegistroController::class, 'guardarRegistro'])->name('editarregistro_post');
 
-
+Route::post('/cerrar-sesion', [Controllers\cerrarSesionController::class, 'cerrarSesion'])->name('cerrar_sesion');
 
 
 Route::get('/logout', [Auth::class, 'logout'])->name('logout');
