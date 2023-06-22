@@ -31,5 +31,18 @@
             </form>
         </li>
     </ul>
+    {{-- Mostrar mensajes de error --}}
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    
+    {{-- Mostrar mensajes de éxito --}}
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 </body>
 </html>
