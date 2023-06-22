@@ -41,8 +41,8 @@ class SubirArchivoController extends Controller
                             'nombre_referencia' => $fields[5],
                             'parentesco' => $fields[6],
                             'campaña_Cod_Campaña_SARC' => $fields[7],
-                            'datos_Id' => intval($fields[8]) == 0 ? null : intval($fields[8]) ,
-                            'observaciones_Id' => intval($fields[9]) == 0 ? null : intval($fields[9]) ,
+                            'datos_Id' => intval($fields[8]) == 0 ? null : intval($fields[8]) , // Verifica si el campo es un número, si no lo es, asigna null
+                            'observaciones_Id' => intval($fields[9]) == 0 ? null : intval($fields[9]) // Verifica si el campo es un número, si no lo es, asigna null
                         ];
                     } else {
                         return redirect()->route('cargar-datos')->with('error', 'Datos incompletos en el archivo.');

@@ -4,10 +4,16 @@
     <title>Información</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/informacion.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+    <style>
+        .dataTables_wrapper, .dataTables_length, .dataTables_filter, .dataTables_paginate {
+            padding: 1rem;
+        }
+    </style>
 </head>
 <body>
     <h1>Información</h1>
-    <table id="dataTable">
+    <table id="dataTable" >
         <thead>
             <tr>
                 <th>Dato</th>
@@ -29,17 +35,12 @@
                     <td>{{ $registro->nombre_referencia }}</td>
                     <td>{{ $registro->parentesco }}</td>
                     <td>
-                    <button onclick="editarregistro('{{ $registro->codigo }}')">Editar</button>
+                        <a href="/editar-registro/{{ $registro->Id }}" class="btn btn-primary">Editar</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
-    <!-- Agregar aquí la pantalla emergente para editar el registro -->
-    <div id="editarRegistroModal" style="display: none;">
-        @include('editarregistro.editarRegistro')
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

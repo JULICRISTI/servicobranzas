@@ -6,9 +6,9 @@
 <body>
     <h1>Editar Registro</h1>
 
-    <form action="{{ route('editarregistro') }}" method="POST">
+    <form action="{{ route('editarregistro_post') }}" method="POST">
         @csrf
-        <input type="hidden" name="id" value="{{ $registro->id }}">
+        <input type="hidden" name="id" value="{{ $registro->Id }}">
         
         <div>
             <label for="dato">Dato:</label>
@@ -22,7 +22,7 @@
         
         <div>
             <label for="cedula">Cédula:</label>
-            <input type="text" name="cedula" value="{{ $registro->cedula }}">
+            <input type="text" name="cedula" value="{{ $registro->cedula_deudor }}">
         </div>
         
         <div>

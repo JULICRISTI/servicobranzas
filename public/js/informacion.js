@@ -17,6 +17,7 @@ function obtenerIdYEditar(nombre) {
             // Obtener el ID de la respuesta
             var id = response.id;
             // Llamar a la función editarRegistro() con el ID obtenido
+            console.log(id);
             editarRegistro(id);
         },
         error: function(xhr, status, error) {
