@@ -59,6 +59,7 @@ Route::post('/editarregistro', [Controllers\EditarRegistroController::class, 'gu
 Route::post('/cerrar-sesion', [Controllers\cerrarSesionController::class, 'cerrarSesion'])->name('cerrar_sesion');
 
 
+
 Route::get('/logout', [Auth::class, 'logout'])->name('logout');
 
 

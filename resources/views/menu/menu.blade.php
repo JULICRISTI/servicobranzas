@@ -16,13 +16,13 @@
             <ul>
 
             <li><a href="{{ route('Informacion') }}" target="content">Informacion</a></li>
-            <li><a href="{{ route('cargar-datos') }}" target="content">Carga de datos</a></li>
+            <li><a href="{{ route('cargar-datos') }}" target="content">Carga y descarga de datos</a></li>
 
             </ul>
         </div>
         <div class="form-container">
             <!-- Botón de cerrar sesión -->
-            <form method="post" action="{{ url('cerrar_sesion') }}">
+            <form method="post" action="{{ route('cerrar_sesion') }}">
                 @csrf
                 <button type="submit">Cerrar sesión</button>
             </form>
